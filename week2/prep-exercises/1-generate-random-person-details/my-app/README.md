@@ -68,3 +68,49 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Things to think of
+
+## Adding a New Field (e.g., Phone Number)
+
+### 1. PersonController Component
+
+Update the `getPerson` function in the `PersonController` to include fetching the phone number from the API.
+
+Example modification in `PersonController`:
+
+```javascript
+const formattedPerson = {
+  firstName: person?.name.first || '',
+  lastName: person?.name.last || '',
+  email: person?.email || '',
+  phoneNumber: person?.phone || '', // Add phone number
+};
+```
+
+Also I would need to edit the Person component:
+
+```javascript
+const Person = ({ firstName, lastName, email, phoneNumber }) => {
+
+  return (
+    <ul>
+      <li>First name: {firstName}</li>
+      <li>Last name: {lastName}</li>
+      <li>Email: {email}</li>
+      <li>Phone number: {phoneNumber}</li>
+    </ul>
+  );
+};
+```
+
+## Adding a Button for Fetching a New Person
+
+To integrate a button for fetching a new person without employing `useEffect`, follow these steps:
+
+1. Create a function, e.g., `fetchNewPerson`, responsible for setting the loading state, fetching data, and updating the component state when the button is clicked.
+2. Eliminate the `useEffect` hook since there's no need for initial fetching in this scenario, simplifying the code.
+
+## Displaying Multiple People
+
+Easily showcase 10 random people by updating the API link in `getPerson`. Then we can map on the result array an then return in the logic of mapping `Person` component with the passed data.
