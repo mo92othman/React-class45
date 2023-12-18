@@ -1,4 +1,3 @@
-// src/services/dataService.js
 const fetchData = async (url) => {
   try {
     const response = await fetch(url);
