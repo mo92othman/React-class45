@@ -1,29 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ProductItem } from './ProductItem';
 import { fetchProducts } from '../services/dataService';
 
 function ProductsList({ selectedCategory }) {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProductsData = async () => {
-      try {
-        const data = await fetchProducts(selectedCategory);
-        setProducts(data);
-      } catch (error) {
-        console.error('Error fetching products', error);
-      }
-    };
-    fetchProductsData();
-  }, [selectedCategory]); // Fetch when selectedCategory changes
+  const { data: products, loading, error } = fetchProducts(selectedCategory);
 
   return (
     <>
-      <ul className="product-list">
-        {products.map((product) => (
-          <ProductItem key={product.id} product={product} />
-        ))}
-      </ul>
+      {loading ? (
+        <p>Loading products...</p>
+      ) : error ? (
+        <p>Error loading products</p>
+      ) : (
+        <ul className="product-list">
+          {products.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))}
+        </ul>
+      )}
     </>
   );
 }
