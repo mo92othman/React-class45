@@ -1,36 +1,73 @@
 import React from 'react';
-import useWithinWindowWidth from '../hooks/useWithinWindowWidth';
-// import { BigHead } from '@bigheads/core';
-import youngAvatar from '../assets/young.jpg';
-import manAvatar from '../assets/man.jpg';
-import oldAvatar from '../assets/old.jpg';
+import { BigHead } from '@bigheads/core';
 
-const AvatarComponent = ({ name, minWidth, maxWidth }) => {
-  const shouldShow = useWithinWindowWidth(minWidth, maxWidth);
-
-  let avatarSrc;
-
-  // Determine the avatar source based on the name
-  switch (name) {
-    case 'A Kid':
-      avatarSrc = youngAvatar;
-      break;
-    case 'A Man':
-      avatarSrc = manAvatar;
-      break;
-    case 'Older Man':
-      avatarSrc = oldAvatar;
-      break;
-    default:
-      // Use a default image if name doesn't match any case
-      avatarSrc = youngAvatar;
-  }
-
-  return shouldShow ? (
-    <div className="AvatarComponent">
-      <img src={avatarSrc} alt={`${name}'s Avatar`} />
-      <p>{name}'s Avatar</p>
-    </div>
-  ) : null;
-};
-export default AvatarComponent;
+// Create three different avatars
+export const Mo = () => (
+  <BigHead
+    accessory="roundGlasses"
+    body="chest"
+    circleColor="blue"
+    clothing="tankTop"
+    clothingColor="black"
+    eyebrows="raised"
+    eyes="wink"
+    facialHair="mediumBeard"
+    graphic="vue"
+    hair="short"
+    hairColor="black"
+    hat="none"
+    hatColor="green"
+    lashes="false"
+    lipColor="purple"
+    mask="false"
+    faceMask="false"
+    mouth="open"
+    skinTone="brown"
+  />
+);
+export const John = () => (
+  <BigHead
+    accessory="none"
+    body="breasts"
+    circleColor="blue"
+    clothing="shirt"
+    clothingColor="white"
+    eyebrows="raised"
+    eyes="normal"
+    facialHair="mediumBeard"
+    graphic="react"
+    hair="long"
+    hairColor="brown"
+    hat="none"
+    hatColor="red"
+    lashes="false"
+    lipColor="red"
+    mask="false"
+    faceMask="false"
+    mouth="openSmile"
+    skinTone="light"
+  />
+);
+export const Joe = () => (
+  <BigHead
+    accessory="shades"
+    body="chest"
+    circleColor="blue"
+    clothing="dressShirt"
+    clothingColor="blue"
+    eyebrows="concerned"
+    eyes="normal"
+    facialHair="mediumBeard"
+    graphic="gatsby"
+    hair="short"
+    hairColor="black"
+    hat="none2"
+    hatColor="black"
+    lashes="true"
+    lipColor="pink"
+    mask="false"
+    faceMask="false"
+    mouth="grin"
+    skinTone="black"
+  />
+);
