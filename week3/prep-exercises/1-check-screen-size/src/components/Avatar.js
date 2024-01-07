@@ -14,7 +14,7 @@ export const Mo = () => (
     facialHair="mediumBeard"
     graphic="vue"
     hair="short"
-    hairColor="black"
+    hairColor="blonde"
     hat="none"
     hatColor="green"
     lashes="false"
@@ -22,7 +22,7 @@ export const Mo = () => (
     mask="false"
     faceMask="false"
     mouth="open"
-    skinTone="brown"
+    skinTone="light"
   />
 );
 export const John = () => (
