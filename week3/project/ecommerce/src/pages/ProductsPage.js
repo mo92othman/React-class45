@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CategoriesList from '../components/CategoriesList';
 import ProductsList from '../components/ProductsList';
+import Nav from '../components/Nav';
 
 function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -11,6 +12,7 @@ function ProductsPage() {
 
   return (
     <>
+      <Nav />
       <CategoriesList
         handleClick={handleClick}
         selectedCategory={selectedCategory}

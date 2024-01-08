@@ -1,9 +1,9 @@
 import React from 'react';
 import { ProductItem } from './ProductItem';
-import { fetchProducts } from '../services/dataService';
+import { useFetchProducts } from '../services/dataService';
 
 function ProductsList({ selectedCategory }) {
-  const { data: products, loading, error } = fetchProducts(selectedCategory);
+  const { data: products, loading, error } = useFetchProducts(selectedCategory);
 
   return (
     <>

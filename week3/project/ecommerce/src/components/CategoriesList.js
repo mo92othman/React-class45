@@ -1,15 +1,12 @@
 import React from 'react';
 import { CategoryItem } from './CategoryItem';
-import { fetchCategories } from '../services/dataService';
+import { useFetchCategories } from '../services/dataService';
 
 function CategoriesList({ handleClick, selectedCategory }) {
-  const { data: categories, loading, error } = fetchCategories();
+  const { data: categories, loading, error } = useFetchCategories();
 
   return (
     <>
-      <header className="App-header">
-        <h1>Products</h1>
-      </header>
       <ul className="list">
         {loading ? (
           <p>Loading categories...</p>

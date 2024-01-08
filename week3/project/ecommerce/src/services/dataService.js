@@ -1,12 +1,12 @@
 import useFetch from './useFetch';
 
-export const fetchCategories = () =>
+export const useFetchCategories = () =>
   useFetch('https://fakestoreapi.com/products/categories');
 
-export const fetchProducts = (selectedCategory) =>
+export const useFetchProducts = (selectedCategory) =>
   selectedCategory
     ? useFetch(`https://fakestoreapi.com/products/category/${selectedCategory}`)
     : useFetch('https://fakestoreapi.com/products');
 
-export const fetchProductDetails = (productId) =>
+export const useFetchProductDetails = (productId) =>
   useFetch(`https://fakestoreapi.com/products/${productId}`);

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchProductDetails } from '../services/dataService';
+import { useFetchProductDetails } from '../services/dataService';
 
 function ProductDetailPage() {
   const { id } = useParams();
-  const { data: product, loading, error } = fetchProductDetails(id);
+  const { data: product, loading, error } = useFetchProductDetails(id);
 
   return (
     <>
@@ -17,7 +17,7 @@ function ProductDetailPage() {
       ) : (
         <>
           <header className="App-header">
-            <h2>{product.title}</h2>
+            <h1>{product.title}</h1>
           </header>
           <div className="product-detail">
             <p>{product.description}</p>
