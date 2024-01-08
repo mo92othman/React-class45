@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useFetchProductDetails } from '../services/dataService';
+import useFetch from '../services/useFetch';
 
 function ProductDetailPage() {
   const { id } = useParams();
-  const { data: product, loading, error } = useFetchProductDetails(id);
+  const url = `https://fakestoreapi.com/products/${id}`;
+  const { data: product, loading, error } = useFetch(url);
 
   return (
     <>

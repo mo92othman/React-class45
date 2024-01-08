@@ -1,9 +1,12 @@
 import React from 'react';
 import { ProductItem } from './ProductItem';
-import { useFetchProducts } from '../services/dataService';
+import useFetch from '../services/useFetch';
 
 function ProductsList({ selectedCategory }) {
-  const { data: products, loading, error } = useFetchProducts(selectedCategory);
+  const url = selectedCategory
+    ? `https://fakestoreapi.com/products/category/${selectedCategory}`
+    : 'https://fakestoreapi.com/products';
+  const { data: products, loading, error } = useFetch(url);
 
   return (
     <>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { CategoryItem } from './CategoryItem';
-import { useFetchCategories } from '../services/dataService';
+import useFetch from '../services/useFetch';
 
 function CategoriesList({ handleClick, selectedCategory }) {
-  const { data: categories, loading, error } = useFetchCategories();
+  const url = 'https://fakestoreapi.com/products/categories';
+  const { data: categories, loading, error } = useFetch(url);
 
   return (
     <>
