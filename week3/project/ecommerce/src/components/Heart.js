@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HeartRegular from '../assets/heart-regular.svg';
 import HeartSolid from '../assets/heart-solid.svg';
 
-const Heart = ({ onHeartClick }) => {
-  const [isFavorited, setIsFavorited] = useState(false);
+const Heart = ({ onHeartClick, isFavorited }) => {
+  const [favorited, setFavorited] = useState(isFavorited);
+
+  useEffect(() => {
+    setFavorited(isFavorited);
+  }, [isFavorited]);
 
   const handleClick = () => {
-    setIsFavorited((prev) => !prev);
+    setFavorited((prev) => !prev);
     if (onHeartClick) {
       onHeartClick();
     }
@@ -14,7 +18,7 @@ const Heart = ({ onHeartClick }) => {
 
   return (
     <button onClick={handleClick}>
-      {isFavorited ? (
+      {favorited ? (
         <img src={HeartSolid} alt="Solid Heart" />
       ) : (
         <img src={HeartRegular} alt="Regular Heart" />
