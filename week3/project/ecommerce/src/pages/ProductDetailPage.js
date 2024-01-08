@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../services/useFetch';
+import Nav from '../components/Nav';
 
 function ProductDetailPage() {
   const { id } = useParams();
@@ -9,6 +10,7 @@ function ProductDetailPage() {
 
   return (
     <>
+      <Nav />
       {loading ? (
         <p>Loading product details...</p>
       ) : error ? (
@@ -17,8 +19,8 @@ function ProductDetailPage() {
         <p>Product not found</p>
       ) : (
         <>
-          <header className="App-header">
-            <h1>{product.title}</h1>
+          <header className="product-title">
+            <h3>{product.title}</h3>
           </header>
           <div className="product-detail">
             <p>{product.description}</p>

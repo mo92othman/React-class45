@@ -64,6 +64,10 @@ margin-top: 20px;
   transition: transform 0.2s, opacity 0.2s;
 }
 
+.product-item a {
+  color: #333;
+  text-decoration: none;
+}
 .product-item:hover {
   transform: scale(1.1); 
   opacity: 0.6;
@@ -122,6 +126,20 @@ margin-top: 20px;
   max-width: 400px; 
   margin-bottom: 10px; 
 }
+.product-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh; 
+  background-color: #5d5d5d; 
+  border-top: #ddd solid 3px;
+  color: white; 
+  margin: 0;
+  padding: 15px;
+}
+
+
+
 
 
 
